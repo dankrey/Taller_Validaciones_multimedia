@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inicio</title>
+    <link rel="Stylesheet" href="Estilos.css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/7aa93029b3.js" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    
+    <header class="Cabecera">
+      <h1 class="Cabecera_Titulo">Taller Maestro Detalle</h1>
+    </header>
+    <nav class="Menu">
+      <a class="Menu_Opcion" href="#miNodo" >
+        <button class="btn btn-1 btn-sep icon-Agregar " >AGREGAR</button>
+      </a>
+      <a
+        class="Menu_Opcion"
+        href="#miNodo_2"
+        
+        > <button class="btn btn-2 btn-sep icon-Editar">MODIFICAR</button></a
+      >
+      <a class="Menu_Opcion" href="#miNodo_3"
+        > <button class="btn btn-3 btn-sep icon-Eliminar">BORRAR</button>
+      </a>
+     
+    </nav>
+
+  
+
+    <!-- Modal de Formulario -->
+    
+    <div id="miNodo" class="modal">
+        <div class="modal-content">
+            <div class="modal-bar"><a href="#">x</a></div>
+            <div class="modal-text">
+
+              <div class="contact_form">
+
+                <div class="formulario">			
+                  <h1 style="text-align: center;">AGREGAR TEMA</h1>
+                    <h3>Escríbe y Agrega un Tema Cualquiera.</h3>
+            
+            
+                      <form  id="addTema" action="">				
+          
+                        
+
+                                <div class="form-group">
+                                  <label  class="colocar_mensaje">Nombre del Tema 
+                                  <input class="form-control"  name="Categoria"  placeholder="Tema a Colocar" id="Tema_Val"  onchange="ButtonActivaccion()" required>
+                                </div>
+                                <div class="form-group">
+                                  <label  class="colocar_mensaje">Descripción
+                                  <textarea name="name" class="form-control"  required placeholder="Escribe aquí tu Descripcion" id="Descrip_Val"  onchange="ButtonActivaccion()" maxlength="500"></textarea> 
+                                </div>
+                                
+                                <div class="form-group">
+                                  <label  class="colocar_mensaje">Fecha de Registro           
+                                    <input type="date"  name="Fecha_Reg" id="Fecha_RegVal"   onchange="ButtonActivaccion()" onblur="Fecha_Validar()" required>  
+                                    <br>
+                                    <span id="resultado_P"></span>
+                                    <br>
+                                </div>
+                                <div class="form-group">
+                                  <label  class="colocar_mensaje">Fecha de Modificación           
+                                    <input type="date"  name="Fecha_Mod" id="Fecha_ModVal"  onchange="ButtonActivaccion()" required>  
+                                </div>
+                                <br>
+                                <br>
+                                <button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" type="submit" id="submitButton"  disabled >Enviar</button>
+                            
+                            <br>
+                            <br>
+                          
+                          
+                        
+                      </form>
+          
+                       
+                </div>	
+              </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Modificar formulario -->
+
+
+ <div id="miNodo_2" class="modal">
+        <div class="modal-content">
+            <div class="modal-bar"><a href="#">x</a></div>
+            <div class="modal-text">
+
+              <div class="contact_form">
+
+                <div class="formulario">			
+                  <h1 style="text-align: center;">Modificar Tema</h1>
+                    <h3>Edita y mira un Tema Cualquiera.</h3>
+            
+            
+                      <form  id="Form_Editar" action="">				
+          
+                  
+                                <div class="form-group">
+                                  <input id="id" class="form-control" type="number" name="id_Objeto" min="0" max="100" placeholder="Buscar por id" required>
+                                  <br>
+                                  <br>
+                                  <i><button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onClick="editTema()" >Buscar</button></i>
+                                </div> 
+                             <div id="Result_Edit">
+
+                             </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            
+                            
+                            <br>
+                            <br>
+                          
+                          
+                        
+                      </form>
+          
+                       
+                </div>	
+              </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+     <!-- Modal de Eliminar formulario -->
+
+
+ <div id="miNodo_3" class="modal">
+  <div class="modal-content">
+      <div class="modal-bar"><a href="#">x</a></div>
+      <div class="modal-text">
+
+        <div class="contact_form">
+
+          <div class="formulario">			
+            <h1 style="text-align: center;">Eliminar Tema</h1>
+              <h3>Elimina Cualquiera Tema.</h3>
+      
+      
+                <form  id="Form_Eliminar" action="">				
+    
+                  
+                   
+
+                          <div class="form-group">
+                            <input id="id_Elimnar" class="form-control" type="number" name="id_Objeto" min="0" max="100" placeholder="Buscar por id" required>
+                            <br>
+                            <br>
+                            <!-- <i><button class="btn btn-1 btn-sep icon-Agregar boton_Centrar" onClick="editUser" type="">Buscar</button></i> -->
+                          </div> 
+                          
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+
+                          <button  class="btn btn-1 btn-sep icon-Eliminar boton_Centrar " onclick="jmgModal('miventana',{
+                            title: 'Eliminar Tema',
+                            width: 400,
+                            height: 40,
+                            
+                            
+                            content:  '<img src=\'img/Notificaccion.png\'>'},
+                            ['Aceptar',function(){
+                              deleteTema()
+                                //  alert('Has pulsado Aceptar. La ventana se cierra automáticamente');
+                            }],
+                            ['Cancelar',function(){
+                                
+                            }]);"
+                            >Eliminar</button>
+                             
+                          <!-- <button class="btn btn-1 btn-sep icon-Eliminar boton_Centrar"  onclick="deleteTema()"  >Eliminar</button> -->
+                         
+                          <!-- onclick="deleteTema()" -->
+                      <br>
+                      <br>
+                    
+                    
+                  
+                </form>
+    
+                 
+          </div>	
+        </div>
+      
+      </div>
+  </div>
+</div>
+
+  <!-- Modal de Elimnar Usuario -->
+
+
+
+
+
+    <section class="Contenido">
+      <section class="Contenido_Panel_Izquierdo">
+       
+
+        <article class="Card  ">
+          <div class="Colocar">
+            <a href="#">
+              Tema 1 
+              <i class="fa fa-mas icon-Mas"></i>
+            </a>
+            <div class="Acordion" >
+              <div class="col-md-8">
+                
+                <table id="userTable" >
+
+         
+                 
+                <tr>
+                  
+                 
+                  
+                 
+                </tr>
+               
+              </table>
+            
+              
+              </div>
+            </div>	
+            </div>
+          </div>
+         
+        </article>
+
+
+
+
+
+       
+      </section>
+      <section class="Contenido_Panel_Derecho">
+        <article class="Card Card_Public">
+          <h2 class="Card_Titulo_Public">Publicaciones</h2>
+          <figure>
+            <img src="img/Img_1.gif" class="Img" />
+            <figcaption id="NombreImg">
+              <a class="Card_VerMas" href="#">Ver Más....</a>
+            </figcaption>
+          </figure>
+          <p class="Card_Descrip">
+            
+          </p>
+        </article>
+
+        <article class="Card Card_Public">
+          <h2 class="Card_Titulo_Public">Míranos</h2>
+         <div class="Camino Cuadro">
+           <div class="taxi">
+             <div class="Luz"></div>
+             <span>
+               <b><i></i></b>
+             </span>
+           </div>
+           <div class="taxi">
+            <div class="Luz"></div>
+            <span>
+              <b><i></i></b>
+            </span>
+          </div>
+         </div>
+        </article>
+        
+        
+      </section>
+      
+      
+    </section>
+
+   <!-- Modal de Agregar -->
+
+
+
+
+
+<!-- Modal de eliminar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</section>
+<footer class="Contenido_PanelInferior" >
+  <i>
+    <img src="img/Img_2.gif" class="logo" />
+   
+  </i> 
+  <br>
+  <h2>Daniel Esteban Reyes Reyes</h2> 
+  <br>
+    <h2>2021</h2>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="jquery.js"></script>
+  </body>
+</html>

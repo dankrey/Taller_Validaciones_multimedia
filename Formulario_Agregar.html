@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inicio</title>
+    <link rel="Stylesheet" href="CSS/Estilos.css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/7aa93029b3.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    
+    <div class="contact_form">
+
+      <div class="formulario">			
+        <h1 style="text-align: center;">AGREGAR TEMA</h1>
+          <h3>Escríbe y Agrega un Tema Cualquiera.</h3>
+  
+  
+            <form action="Index.html" name="Formulario_Agregar"  id="Formulario_Agregar">				
+  
+              
+                  <p>
+                    <label for="Codigo" class="">Código
+                      <span class="">*</span>
+                    </label>
+                      <input type="number" name="Codigo" id="Codigo" required="obligatorio" style="width: 45px;" >
+                  </p>
+                  <p>
+                    <Descripción for="Descricion" class="colocar_mensaje" >Descripción
+                      <span class="obligatorio">*</span>
+                    </label>                     
+                                       <textarea name="introducir_mensaje" class="texto_mensaje" id="Descrip" required="obligatorio" placeholder="Deja aquí tu comentario..." maxlength="500"></textarea> 
+                                   </p>	
+                  <p>
+                    <label for="Fecha_Reg" class="colocar_mensaje">Fecha de Registro             
+                   <input type="date" id="Fecha_Reg" name="Fecha_Reg"required>  								
+                    </p>
+                    <p>
+                      <label for="Fecha_Mod" class="colocar_mensaje">Fecha de Modificación           
+                     <input type="date" id="Fecha_Mod" name="Fecha_Reg" required>  								
+                      </p>
+                  <button type="submit" name="enviar_formulario" id="Btn_Agregar" class="btn btn-1 btn-sep icon-Agregar boton_Centrar" ><p>Enviar</p></button> 
+                  <br>
+                  <br>
+                
+              
+            </form>
+
+            <p id="Result_Objt">Aqui va el objeto</p>
+      </div>	
+    </div>
+  
+    
+    <footer class="Contenido_PanelInferior" >
+      <i>
+        <img src="Imagenes/Img_2.gif" class="logo" />
+       
+      </i> 
+      <br>
+      <h2>Daniel Esteban Reyes Reyes</h2> 
+      <br>
+        <h2>2021</h2>
+    </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="JQUERY/jquery.js"></script>
+  </body>
+</html>
